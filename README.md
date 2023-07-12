@@ -4,6 +4,12 @@ Lua 5.4 Cgo implementaiton for Go (golang)
 ## Goal
 Some people are not interested in being stuck on Lua 5.1 forever and wish to use the new language features. This is the primary reason for making this repository. This uses nearly identical Lua 5.4 code (with the exception of detecting linux and [setting a define](https://github.com/BrentFarris/Cgo-Lua/blob/master/luaconf.h#L8)).
 
+## Build
+I've tested this on Windows and Linux (not Mac yet, I don't own one). For the most part you just need to import the library and you're good to go. Though, in order to build the Lua source (part of this package) you'll need to make sure you have the following environment variable set:
+```sh
+CGO_LDFLAGS="-lm -ldl"
+```
+
 ## Usage
 Hello world:
 ```go
