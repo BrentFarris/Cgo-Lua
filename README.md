@@ -1,5 +1,5 @@
 # Cgo-Lua
-Lua 5.4 Cgo implementaiton for Go (golang)
+Lua 5.4 Cgo implementaiton for Go (golang) that always tries to stay up to date with the latest public release of the Lua library.
 
 ## Goal
 Some people are not interested in being stuck on Lua 5.1 forever and wish to use the new language features. This is the primary reason for making this repository. This uses nearly identical Lua 5.4 code (with the exception of detecting linux and [setting a define](https://github.com/BrentFarris/Cgo-Lua/blob/master/luaconf.h#L8)).
