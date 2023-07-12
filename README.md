@@ -23,6 +23,7 @@ func main() {
 Hello using go function:
 ```go
 import (
+	"log"
 	lua "github.com/BrentFarris/Cgo-Lua"
 )
 
