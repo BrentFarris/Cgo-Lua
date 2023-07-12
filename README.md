@@ -12,7 +12,7 @@ import (
 )
 
 func TryLua() {
-	L := NewLuaState()
+	L := lua.NewLuaState()
 	defer L.Close()
 	L.GetGlobal("print")
 	L.PushString("Hello, world from the Cgo API!")
