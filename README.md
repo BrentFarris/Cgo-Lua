@@ -5,18 +5,34 @@ Lua 5.4 Cgo implementaiton for Go (golang)
 Some people are not interested in being stuck on Lua 5.1 forever and wish to use the new language features. This is the primary reason for making this repository. This uses nearly identical Lua 5.4 code (with the exception of detecting linux and [setting a define](https://github.com/BrentFarris/Cgo-Lua/blob/master/luaconf.h#L8)).
 
 ## Usage
-
+Hello world:
 ```go
 import (
-  lua "github.com/BrentFarris/Cgo-Lua"
+	lua "github.com/BrentFarris/Cgo-Lua"
 )
 
-func TryLua() {
+func main() {
 	L := lua.NewLuaState()
 	defer L.Close()
 	L.GetGlobal("print")
-	L.PushString("Hello, world from the Cgo API!")
+	L.PushString("Hello, World! -From the Cgo API!")
 	L.Call(1, 0)
+}
+```
+
+Hello using go function:
+```go
+import (
+	lua "github.com/BrentFarris/Cgo-Lua"
+)
+
+func main() {
+	L := lua.NewLuaState()
+	L.SetGlobalFunction("other_hello", func(L *lua.LuaState) int {
+		log.Print("Hello Go function from Lua!")
+		return 0
+	})
+	L.DoString("other_hello()")
 }
 ```
 
